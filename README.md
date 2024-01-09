@@ -1,7 +1,7 @@
 # Cool Password Generator
 ## Description
 
-Cool Password Generator Link: <br>
+Cool Password Generator Link: <br>https://kaleims.github.io/Password-Generator/
 
 This project was quite challenging for me but with the help of research on google I managed to create a functional Password Generator.
 Javascript is a whole different ballpark, but I am adamant on imroving my skills with more useful projects like this.
@@ -9,7 +9,9 @@ I enjoyed the use of if statements which are interesting as they can be used in 
 
 ## Usage
 
-Link to Password Generator: <br>
+Link to Password Generator: <br>https://kaleims.github.io/Password-Generator/
+
+![image](resources/images/Password-Generator.PNG)
     
 ## Credits
 
