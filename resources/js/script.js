@@ -1,119 +1,74 @@
-// Array of special characters to be included in password
-var specialCharacters = [
-    '@',
-    '%',
-    '+',
-    '\\',
-    '/',
-    "'",
-    '!',
-    '#',
-    '$',
-    '^',
-    '?',
-    ':',
-    ',',
-    ')',
-    '(',
-    '}',
-    '{',
-    ']',
-    '[',
-    '~',
-    '-',
-    '_',
-    '.'
-  ];
-  
-  // Array of numeric characters to be included in password
-  var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-  
-  // Array of lowercase characters to be included in password
-  var lowerCasedCharacters = [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z'
-  ];
-  
-  // Array of uppercase characters to be included in password
-  var upperCasedCharacters = [
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
-    'F',
-    'G',
-    'H',
-    'I',
-    'J',
-    'K',
-    'L',
-    'M',
-    'N',
-    'O',
-    'P',
-    'Q',
-    'R',
-    'S',
-    'T',
-    'U',
-    'V',
-    'W',
-    'X',
-    'Y',
-    'Z'
-  ];
-  
-  // Function to prompt user for password options
-  function getPasswordOptions() {
-    
+var generateBtn = document.querySelector("#generate");
+alert("Welcome to my Password Generator");
+
+// Function to prompt user for password options
+function getPasswordOptions() {
+  // Variables for what characters can be used through line 6 to 9
+  var specialCharacters = "@%+\\/'!#$^?:,)(}{][~-_.";
+  var numericCharacters = "0123456789";
+  var lowerCasedCharacters = "abcdefghijklmnopqrstuvwxyz";
+  var upperCasedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var newPassword = "";
+  var multiSelect = "";
+
+  // Prompt to tell user how long the password has to be
+  var passwordLength = prompt("Password must be between 8 and 128 characters.");
+
+  //If statement for getting the password options
+  if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+    //If the password length is less than 8 or more than 128 line 19 alert "Please try again will show"
+    alert("Please try again. Password can have 8 to 128 characters");
+    return; //If password length does not meet requirements it will return the alert above on like 19
+  } else {
+    // else statement to ask which characters you want to include in your password
+    var upperCase = confirm(
+      "Do you want to include uppercase characters in your password?"
+    );
+    var lowerCase = confirm(
+      "Do you want to include lowercase characters in your password?"
+    );
+    var specialChar = confirm(
+      "Do you want to include special characters in your password?"
+    );
+    var numericChar = confirm(
+      "Do you want to include numeric characters in your password?"
+    );
   }
-  
-  // Function for getting a random element from an array
-  function getRandom(arr) {
-  
+
+  //if statements which specify which characters you chose and which characters to add or not add to multiSelect which is a empty variable
+  if (upperCase) {
+    multiSelect += upperCasedCharacters;
   }
-  
-  // Function to generate password with user input
-  function generatePassword() {
-  
+
+  if (lowerCase) {
+    multiSelect += lowerCasedCharacters;
   }
-  
-  // Get references to the #generate element
-  var generateBtn = document.querySelector('#generate');
-  
-  // Write password to the #password input
-  function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector('#password');
-  
-    passwordText.value = password;
+
+  if (specialChar) {
+    multiSelect += specialCharacters;
   }
-  
-  // Add event listener to generate button
-  generateBtn.addEventListener('click', writePassword);
-  
+
+  if (numericChar) {
+    multiSelect += numericCharacters;
+  }
+
+  // This for statement is randomizing the newPassword. By now it has all the info it needs to do the math to create a password which whichever fields the user input or chose
+  for (i = 0; i < passwordLength; i++) {
+    newPassword += multiSelect[Math.floor(Math.random() * multiSelect.length)];
+  }
+  return newPassword;
+}
+
+var placeholderBox = document.querySelector("#password"); //This finds the id #password from the html
+function writePassword(newPassword) {
+  if (password.length === 0) {
+    return;
+  }
+  placeholderBox.value = newPassword;
+}
+
+// Add event listener to generate button
+// This will run the function getPasswordOptions
+generateBtn.addEventListener("click", function () {
+  writePassword(getPasswordOptions());
+});
