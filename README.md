@@ -11,6 +11,9 @@ I enjoyed the use of if statements which are interesting as they can be used in 
 
 Link to Password Generator: <br>https://kaleims.github.io/Password-Generator/
 
+To use the Password Generator simply click <b>"Generate Password"</b> and follow the instructions of the pop ups
+
+
 ![image](resources/images/Password-Generator.PNG)
     
 ## Credits
