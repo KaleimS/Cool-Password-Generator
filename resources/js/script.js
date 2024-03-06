@@ -4,15 +4,15 @@ alert("Welcome to my Password Generator");
 // Function to prompt user for password options
 function getPasswordOptions() {
   // Variables for what characters can be used through line 6 to 9
-  var specialCharacters = "@%+\\/'!#$^?:,)(}{][~-_.";
-  var numericCharacters = "0123456789";
-  var lowerCasedCharacters = "abcdefghijklmnopqrstuvwxyz";
-  var upperCasedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var newPassword = "";
-  var multiSelect = "";
+  const specialCharacters = "@%+\\/'!#$^?:,)(}{][~-_.";
+  const numericCharacters = "0123456789";
+  const lowerCasedCharacters = "abcdefghijklmnopqrstuvwxyz";
+  const upperCasedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let newPassword = "";
+  let multiSelect = "";
 
   // Prompt to tell user how long the password has to be
-  var passwordLength = prompt("Password must be between 8 and 128 characters.");
+  const passwordLength = prompt("Pick the length of your password. It must be between 8 and 128 characters.(Example: 12)");
 
   //If statement for getting the password options
   if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
@@ -61,7 +61,7 @@ function getPasswordOptions() {
 
 var placeholderBox = document.querySelector("#password"); //This finds the id #password from the html
 function writePassword(newPassword) {
-  if (password.length === 0) {
+  if (newPassword.length === 0) {
     return;
   }
   placeholderBox.value = newPassword;
